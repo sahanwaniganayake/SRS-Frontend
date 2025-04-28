@@ -1,4 +1,6 @@
 import Registration from "./RegistrationForm"
+import StudentList from "./StudentList"
+import StudentUpdate from "./StudentUpdate"
 
 function App() {
   
@@ -10,10 +12,13 @@ function App() {
    </div>
     <div className="Section">
       <Registration/>
+      <StudentList/>
+      <StudentUpdate/>
     </div>
     </>
     
   )
 }
+
 
 export default App

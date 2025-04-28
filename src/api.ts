@@ -13,4 +13,9 @@ export const addStudent = (student: { name: string; email: string; age: number }
 
 export const getAllStudents = () =>{
     return api.get('/');
-}
+};
+
+
+export const updateStudent = (id: number, student: { name?: string; email?: string; age?: number }) => {
+    return api.put(`/${id}`, student);
+};
