@@ -1,0 +1,23 @@
+
+
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;   /* Full width of the container */
+    
+}
+
+
+input{
+    width: 350px;
+    height: 25px;
+    border-radius: 10px;
+    background-color: azure;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+

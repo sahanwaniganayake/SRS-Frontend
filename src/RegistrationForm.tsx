@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { addStudent } from './api';
 import axios from 'axios';
+import './RegistrationForm.css'
 
 function Registration() {
   const [name, setName] = useState('');
@@ -43,10 +44,11 @@ function Registration() {
 
   return (
     <>
-      <div className="form">
+      <div className="form-container">
         <h2>Student Registration</h2>
         <form onSubmit={handleSubmit}>
           <div>
+            
             <input
               type="text"
               placeholder="Name"
@@ -56,6 +58,7 @@ function Registration() {
             />
           </div>
           <div>
+            
             <input
               type="number"
               placeholder="Age"
@@ -65,6 +68,7 @@ function Registration() {
             />
           </div>
           <div>
+            
             <input
               type="email"
               placeholder="Email"
@@ -80,6 +84,7 @@ function Registration() {
             {message}
           </p>
         )}
+        
       </div>
     </>
   );

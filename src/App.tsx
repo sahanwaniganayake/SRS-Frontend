@@ -2,6 +2,9 @@ import Registration from "./RegistrationForm"
 import StudentList from "./StudentList"
 import StudentUpdate from "./StudentUpdate"
 
+
+
+
 function App() {
   
 
