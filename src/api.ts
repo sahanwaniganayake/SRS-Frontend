@@ -19,3 +19,8 @@ export const getAllStudents = () =>{
 export const updateStudent = (id: number, student: { name?: string; email?: string; age?: number }) => {
     return api.put(`/${id}`, student);
 };
+
+
+export const deleteStudent = (id:number) => {
+    return api.delete(`/${id}`);
+}

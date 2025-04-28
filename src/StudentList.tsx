@@ -1,5 +1,6 @@
 import {useState ,useEffect} from "react";
-import { getAllStudents } from "./api";
+import { deleteStudent, getAllStudents } from "./api";
+import axios from "axios";
 
 
 interface Student{
@@ -9,7 +10,11 @@ interface Student{
     email:string;
 }
 
-function StudentList() {
+interface StudentListProps{
+    OnStudentDeleted?: () => void;
+}
+
+function StudentList({OnStudentDeleted}:StudentListProps) {
     const [students, setStudents] = useState<Student[]>([]);
     const [error, setError] = useState<string>('');
   
@@ -28,6 +33,30 @@ function StudentList() {
       fetchStudents();
     }, []);
 
+    const handleDelete = async(id: number) => {
+        if(!window.confirm(`Are you sure do you want to delete student with student id: ${id}`)){
+            return;
+        }
+
+        try {
+            const response = await deleteStudent(id);
+            console.log('Delete response:', response.data);
+            setStudents(students.filter((student) => student.id !== id)); 
+            setError('');
+            if (OnStudentDeleted) {
+              OnStudentDeleted;
+            }
+          } catch (error) {
+            if (axios.isAxiosError(error) && error.response) {
+              console.error('Error deleting student:', error.response.data, error.response.status);
+              setError(error.response.data || 'Error deleting student.');
+            } else {
+              console.error('Error:', error);
+              setError('An unexpected error occurred.');
+            }
+          }
+    }
+
 return(
     <div className="student-list">
         <h2>All students</h2>
@@ -40,6 +69,7 @@ return(
                     <th>Name</th>
                     <th>Age</th>
                     <th>Email</th>
+                    <th>Action</th>
                 </thead>
                 <tbody>
                     {students.map((student) =>(
@@ -48,6 +78,9 @@ return(
                             <td>{student.name}</td>
                             <td>{student.age}</td>
                             <td>{student.email}</td>
+                            <td>
+                                <button onClick={() => handleDelete(student.id)}> - </button>
+                            </td>
 
                         </tr>
                     ))}
