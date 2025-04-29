@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { updateStudent } from "./api";
 import axios from "axios";
-
+import "./StudentUpdate.css";
 
 
 interface StudentUpdateProps{

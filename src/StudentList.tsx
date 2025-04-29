@@ -1,6 +1,7 @@
 import {useState ,useEffect} from "react";
 import { deleteStudent, getAllStudents } from "./api";
 import axios from "axios";
+import "./StudentList.css";
 
 
 interface Student{

@@ -15,6 +15,7 @@ function App() {
    </div>
     <div className="Section">
       <Registration/>
+  
       <StudentList/>
       <StudentUpdate/>
     </div>

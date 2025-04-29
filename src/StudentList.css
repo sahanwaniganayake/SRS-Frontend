@@ -1,0 +1,23 @@
+.student-list h2{
+    margin-top: 50px;
+}
+
+.student-list button{
+    background-color: red;
+    width: auto;
+    border-radius: 0px;
+}
+
+
+.student-list{
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+}
+
+table{
+    border-collapse: separete;
+    border-spacing: 20px;
+}
+    
